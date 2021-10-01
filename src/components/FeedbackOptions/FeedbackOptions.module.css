@@ -1,0 +1,15 @@
+.button--good {
+    background-color: lightgreen;
+    color:rgb(207, 150, 7);
+    box-shadow: 10px 5px 5px grey ;
+}
+.button--neutral {
+    background-color: rgb(96, 209, 224);
+    color:rgb(12, 9, 3);
+    box-shadow: 10px 5px 5px grey ;
+}
+.button--bad {
+    background-color: rgb(138, 10, 10);
+    color:rgb(245, 243, 240);
+    box-shadow: 10px 5px 5px grey ;
+}
