@@ -14,7 +14,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback}) => {
           key={nextId()}
           className={s[`button--${el}`]}
           onLeaveFeedback={onLeaveFeedback}
-        />
+          vote={el}/>
       ))}
     </>
   );

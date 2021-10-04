@@ -12,10 +12,10 @@ class App extends React.Component {
     neutral: 0,
     bad: 0,
   };
-  handleClick = event => {
+  handleClick = vote => {
     this.setState(previous => {
       return {
-        [event.target.textContent]: previous[event.target.textContent] + 1,
+        [vote]: previous[vote] + 1,
       };
     });
   };
@@ -28,17 +28,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <SectionTitle title={'Please, leave feedback'}>
+        <SectionTitle title="Please, leave feedback">
           <FeedbackOptions
             options={this.state}
             onLeaveFeedback={this.handleClick}
           />
         </SectionTitle>
-        <SectionTitle title={'Statistics'}>
-          { this.state.good !== 0 ||
-           this.state.neutral !== 0 ||
-            this.state.bad !== 0 ?
-              (
+        <SectionTitle title="Statistics">
+          {this.countTotalFeedback() ? (
             <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
@@ -46,7 +43,8 @@ class App extends React.Component {
               total={this.countTotalFeedback()}
               positivePercentage={this.countPositiveFeedbackPercentage()}
             />
-          ) : (<Notification message={'No feedback given'}/>
+          ) : (
+            <Notification message='No feedback given' />
           )}
         </SectionTitle>
       </div>
